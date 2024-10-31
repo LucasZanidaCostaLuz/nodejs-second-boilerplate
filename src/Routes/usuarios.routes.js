@@ -14,7 +14,7 @@ usuariosRoutes.get("/", (req, res) => {
 })
 
 usuariosRoutes.post("/", (req, res) => {
-    const {name, email, password} = req.body
+    const { name, email, password } = req.body
 
     const user = usersList.addUser(name, email, password)
 
@@ -22,5 +22,30 @@ usuariosRoutes.post("/", (req, res) => {
         message: "Usuarios cadastrado com sucesso!", user
     })
 })
+
+usuariosRoutes.get("/:id", (req, res) => {
+    const {id} = req.params
+
+    const user = usersList.getUserById(id)
+
+    if(!id){
+        return res.status(404).json({
+            message: `Usuário com o id ${id} não encontrado!` 
+        })
+    }
+    return res.status(200).json({
+        message: `Usuário com id ${id} encontrado!`, user
+    })
+}
+)
+
+usuariosRoutes.put("/id", (req, res) => {
+
+}
+)
+usuariosRoutes.delete("/id", (req, res) => {
+
+}
+)
 
 export default usuariosRoutes;
