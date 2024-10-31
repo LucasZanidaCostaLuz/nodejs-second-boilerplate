@@ -1,8 +1,10 @@
 class UsersRepository {
     constructor(){
-        this.Users = []
+        this.users = []
     }
     getAllUsers(){
-        return this.Users
+        return this.users
     }
 }
+
+export default UsersRepository
