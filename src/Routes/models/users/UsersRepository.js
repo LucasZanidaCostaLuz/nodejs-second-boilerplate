@@ -1,9 +1,18 @@
+import User from "./User.js"
+
 class UsersRepository {
-    constructor(){
+    constructor() {
         this.users = []
     }
-    getAllUsers(){
+    getAllUsers() {
         return this.users
+    }
+    addUser(name, email, password) {
+        const newUser = new User(name, email, password);
+
+        this.users.push(newUser)
+
+        return newUser
     }
 }
 
